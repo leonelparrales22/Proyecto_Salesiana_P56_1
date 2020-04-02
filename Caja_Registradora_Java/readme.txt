@@ -1,0 +1,1 @@
+Aplicación de caja registradora realizada en el lenguaje de programación Java
