@@ -25,10 +25,10 @@
     <column id="COL5" populated="true" UUID="21c03154-60d5-44a3-ae54-4982505558d5" autoIncrement="false" autoIncrementSequenceName="PRODUCTO_MARCA_seq" defaultValue="" name="marca" nullable="1" physicalName="marca" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL6" populated="true" UUID="55802367-5811-4d40-b4a3-2cbc92017a49" autoIncrement="false" autoIncrementSequenceName="PRODUCTO_precio_seq" defaultValue="" name="precio_comercial" nullable="0" physicalName="precio_comercial" precision="5" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+    <column id="COL6" populated="true" UUID="488289fc-38ee-43f2-97b2-722c12341fbf" autoIncrement="false" autoIncrementSequenceName="PRODUCTO_diponible_seq" defaultValue="" name="stock" nullable="0" physicalName="stock" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL7" populated="true" UUID="0d9ff5f3-b8be-4602-b311-d1b1f36d5348" autoIncrement="false" autoIncrementSequenceName="PRODUCTO_precio_distribuidor_seq" defaultValue="" name="precio_distribuidor" nullable="0" physicalName="precio_distribuidor" precision="5" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+    <column id="COL7" populated="true" UUID="55802367-5811-4d40-b4a3-2cbc92017a49" autoIncrement="false" autoIncrementSequenceName="PRODUCTO_precio_seq" defaultValue="" name="precio" nullable="0" physicalName="precio" precision="5" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
      <remarks></remarks>
     </column>
     </folder>
@@ -148,16 +148,19 @@
     </index>
    </folder>
   </table>
-  <table id="TAB38" populated="true" UUID="0601b283-9c88-4862-bf2b-fdcce8b88933" name="COMPRAS" objectType="TABLE" physicalName="COMPRAS" >
+  <table id="TAB38" populated="true" UUID="0601b283-9c88-4862-bf2b-fdcce8b88933" name="GASTOS" objectType="TABLE" physicalName="GASTOS" >
    <remarks></remarks>
    <folder id="FOLTAB381" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL39" populated="true" UUID="2f065849-3795-4b2c-9828-c804bb725055" autoIncrement="false" autoIncrementSequenceName="PRODUCTO_id_seq" defaultValue="" name="id_producto" nullable="0" physicalName="id_producto" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL39" populated="true" UUID="d99d8cac-c404-4251-a6e5-e2721e730fb5" autoIncrement="false" autoIncrementSequenceName="GASTOS_id_gastos_seq" defaultValue="" name="id_gastos" nullable="0" physicalName="id_gastos" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL40" populated="true" UUID="26d6108f-2e13-4388-8d87-88fab0690d17" autoIncrement="false" autoIncrementSequenceName="COMPRAS_fecha_seq" defaultValue="" name="fecha" nullable="0" physicalName="fecha" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL40" populated="true" UUID="26d6108f-2e13-4388-8d87-88fab0690d17" autoIncrement="false" autoIncrementSequenceName="GASTOS_fecha_seq" defaultValue="" name="fecha" nullable="0" physicalName="fecha" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
-    <column id="COL41" populated="true" UUID="70c325cc-9396-4781-95c3-9ac1052d204f" autoIncrement="false" autoIncrementSequenceName="COMPRAS_cantidad_seq" defaultValue="" name="cantidad" nullable="0" physicalName="cantidad" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL41" populated="true" UUID="f4512cfc-d814-4dfe-b9d4-f5266078594f" autoIncrement="false" autoIncrementSequenceName="GASTOS_descripcion_seq" defaultValue="" name="descripcion" nullable="0" physicalName="descripcion" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL42" populated="true" UUID="70c325cc-9396-4781-95c3-9ac1052d204f" autoIncrement="false" autoIncrementSequenceName="GASTOS_cantidad_seq" defaultValue="" name="valor" nullable="0" physicalName="valor" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     </folder>
@@ -166,16 +169,14 @@
     <folder id="FOLTAB382" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB384" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX42" populated="true" UUID="5f2e62a3-eb3d-44f2-9e09-194dc538923e" clustered="false" name="COMPRAS_pk" physicalName="COMPRAS_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX43" populated="true" UUID="5f2e62a3-eb3d-44f2-9e09-194dc538923e" clustered="false" name="GASTOS_pk" physicalName="COMPRAS_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC44" populated="true" UUID="e7b7417f-87bb-477b-86f0-ea19643d97e5" ascendingOrDescending="UNSPECIFIED" column-ref="COL39" name="id_gastos" physicalName="id_gastos" />
     </index>
    </folder>
   </table>
   <relationships>
-   <relationship id="REL43" populated="true" UUID="c8005576-8b58-4072-97b7-ab40244f722c" deferrability="7" deleteRule="3" fk-table-ref="TAB23" fkCardinality="7" identifying="true" name="PRODUCTO_DETALLES_DEL_PEDIDO_fk" physicalName="PRODUCTO_DETALLES_DEL_PEDIDO_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP44" populated="true" UUID="f007e4f4-3ef6-46d8-b335-e8c11b22601e" fk-column-ref="COL25" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
-   </relationship>
-   <relationship id="REL45" populated="true" UUID="efc7df6c-eff4-45ce-b4a0-5c7540b2d287" deferrability="7" deleteRule="3" fk-table-ref="TAB38" fkCardinality="7" identifying="true" name="PRODUCTO_COMPRAS_fk" physicalName="PRODUCTO_COMPRAS_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP46" populated="true" UUID="77b6748c-b48f-4960-85ba-91ae9d9ae6ac" fk-column-ref="COL39" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   <relationship id="REL45" populated="true" UUID="c8005576-8b58-4072-97b7-ab40244f722c" deferrability="7" deleteRule="3" fk-table-ref="TAB23" fkCardinality="7" identifying="true" name="PRODUCTO_DETALLES_DEL_PEDIDO_fk" physicalName="PRODUCTO_DETALLES_DEL_PEDIDO_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP46" populated="true" UUID="f007e4f4-3ef6-46d8-b335-e8c11b22601e" fk-column-ref="COL25" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
    <relationship id="REL47" populated="true" UUID="399b0b07-9d77-4f52-89b4-c0956d9fca1c" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="true" name="PERSONA_VENTAS_fk" physicalName="PERSONA_VENTAS_fk" pk-table-ref="TAB10" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP48" populated="true" UUID="9bcc7e60-7283-4656-b5e9-61ab95567248" fk-column-ref="COL20" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL11" />
@@ -197,12 +198,11 @@
   <table-pane table-ref="TAB17" x="366" y="53" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB23" x="200" y="255" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB28" x="470" y="240" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB38" x="34" y="380" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB38" x="40" y="400" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL47" pkConnection="0.47058823529411764" fkConnection="0.543859649122807" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL43" pkConnection="0.7004405286343612" fkConnection="0.16" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL45" pkConnection="0.7004405286343612" fkConnection="0.16" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL49" pkConnection="0.7368421052631579" fkConnection="0.5829596412556054" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="130"/>
   <table-link relationship-ref="REL51" pkConnection="0.589622641509434" fkConnection="0.40825688073394495" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL45" pkConnection="0.5022026431718062" fkConnection="0.315" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">
