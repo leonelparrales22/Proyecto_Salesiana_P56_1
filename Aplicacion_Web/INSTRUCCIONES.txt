@@ -1,2 +1,6 @@
+DOCUMENTACIÓN:
+https://akveo.github.io/ngx-admin/docs/getting-started/installation-guidelines#install-tools
+
+COMANDOS INICIALES:
 npm i
 npm start
