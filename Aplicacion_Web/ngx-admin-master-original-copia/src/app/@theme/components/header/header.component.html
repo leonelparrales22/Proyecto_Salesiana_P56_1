@@ -1,6 +1,32 @@
 <style>
-  .heading {
-    color: #ff0000;
+  
+  .image:hover {
+    height: 70px;
+    background: transparent;
+    color: black;
+    transform: scale(1.5, 1.5);
+  }
+
+  .logotipo {
+    display: block;
+    height: 50px;
+  }
+
+
+  a.logo2 {
+    color: yellow;
+    transition: color 500ms, transform 500ms;
+  }
+
+  a.logo2 :hover {
+    background: transparent;
+    color: black;
+    transform: scale(1.50, 1.50);
+  }
+
+  a.logo {
+    font-family: 'Times New Roman', Times, serif !important;
+    color: red !important;
   }
 </style>
 
@@ -9,8 +35,9 @@
     <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
       <nb-icon icon="menu-2-outline"></nb-icon>
     </a>
+    <img src="../../../../assets/images/logo.png" alt="" class="logotipo" />
     <a class="logo" href="#" (click)="navigateHome()"
-      >Lap<span class="heading">orse</span></a
+      >Lap<span>orse</span></a
     >
   </div>
   <nb-select
@@ -22,6 +49,7 @@
       {{ theme.name }}</nb-option
     >
   </nb-select>
+  <a href="" class="logo2">Hola-------</a>
 </div>
 
 <div class="header-container">
