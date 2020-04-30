@@ -19,12 +19,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: "Productos",
-    icon: "people-outline",
+    icon: "briefcase-outline",
     link: "/pages/iot-dashboard",
   },
   {
     title: "Gastos",
-    icon: "home-outline",
+    icon: "shopping-cart-outline",
     link: "/pages/iot-dashboard",
   },
   {
