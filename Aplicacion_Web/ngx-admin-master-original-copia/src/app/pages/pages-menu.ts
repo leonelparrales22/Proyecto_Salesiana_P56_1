@@ -15,17 +15,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: "Usuarios",
     icon: "people-outline",
-    link: "/pages/iot-dashboard",
+    link: "/pages/tables/usuarios",
   },
   {
     title: "Productos",
     icon: "briefcase-outline",
-    link: "/pages/iot-dashboard",
+    link: "/pages/tables/productos",
   },
   {
     title: "Gastos",
     icon: "shopping-cart-outline",
-    link: "/pages/iot-dashboard",
+    link: "/pages/tables/gastos",
   },
   {
     title: "FEATURES",
