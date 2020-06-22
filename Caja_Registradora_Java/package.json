@@ -1,0 +1,16 @@
+{
+    "name": "caja-registradora",
+    "version": "1.0.0",
+    "description": "Caja registradora para el Proyecto Integrador P56",
+    "main": "index.js",
+    "scripts": {
+        "start": "electron ./Login_Caja/main.js"
+    },
+    "author": "Diego González",
+    "license": "ISC",
+    "dependencies": {
+        "boostrap": "^2.0.0",
+        "electron": "^8.2.5",
+        "jquery": "^3.5.0"
+    }
+}

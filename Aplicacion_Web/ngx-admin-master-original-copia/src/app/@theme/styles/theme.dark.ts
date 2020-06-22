@@ -31,7 +31,8 @@ export const DARK_THEME = {
       tooltipBg: baseThemeVariables.bg,
       tooltipBorderColor: baseThemeVariables.border2,
       tooltipExtraCss: 'border-radius: 10px; padding: 4px 16px;',
-      tooltipTextColor: baseThemeVariables.fgText,
+      // tooltipTextColor: baseThemeVariables.fgText,
+      tooltipTextColor: 'rgba(0, 0, 0, 0)',
       tooltipFontWeight: 'normal',
 
       yAxisSplitLine: baseThemeVariables.separator,
@@ -53,7 +54,8 @@ export const DARK_THEME = {
       tooltipLineWidth: '0',
       tooltipBorderColor: baseThemeVariables.border2,
       tooltipExtraCss: 'border-radius: 10px; padding: 8px 24px;',
-      tooltipTextColor: baseThemeVariables.fgText,
+      // tooltipTextColor: baseThemeVariables.fgText,
+      tooltipTextColor: 'rgba(0, 0, 0, 0)',
       tooltipFontWeight: 'normal',
 
       axisLineColor: baseThemeVariables.border3,
