@@ -39,7 +39,7 @@
     </index>
    </folder>
   </table>
-  <table id="TAB9" populated="true" UUID="0a933ad2-4340-4d41-8174-41bb5183a56b" name="CLIENTE" objectType="TABLE" physicalName="CLIENTE" >
+  <table id="TAB9" populated="true" UUID="0a933ad2-4340-4d41-8174-41bb5183a56b" name="CLIENTES" objectType="TABLE" physicalName="CLIENTES" >
    <remarks></remarks>
    <folder id="FOLTAB91" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL10" populated="true" UUID="941faf3f-3bbc-4d3c-999b-5741b0781ad6" autoIncrement="false" autoIncrementSequenceName="CLIENTE_cedula_seq" defaultValue="" name="cedula_cliente" nullable="0" physicalName="cedula_cliente" precision="10" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -60,7 +60,7 @@
     <folder id="FOLTAB92" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB94" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX14" populated="true" UUID="1395b775-944d-4941-b009-215882593c0e" clustered="false" name="CLIENTE_pk" physicalName="cliente_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX14" populated="true" UUID="1395b775-944d-4941-b009-215882593c0e" clustered="false" name="CLIENTES_pk" physicalName="cliente_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC15" populated="true" UUID="ffd05117-9991-4f55-abb6-2c27f15e02bc" ascendingOrDescending="UNSPECIFIED" column-ref="COL10" name="cedula_cliente" physicalName="cedula_cliente" />
     </index>
    </folder>
@@ -172,24 +172,24 @@
    </folder>
   </table>
   <relationships>
-   <relationship id="REL44" populated="true" UUID="3ce74ab6-86e6-40ff-b124-6c1a20ff4441" deferrability="7" deleteRule="3" fk-table-ref="TAB23" fkCardinality="7" identifying="true" name="CELULARES_DETALLE_VENTA_fk" physicalName="celulares_detalle_venta_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+   <relationship id="REL44" populated="true" UUID="3ce74ab6-86e6-40ff-b124-6c1a20ff4441" deferrability="7" deleteRule="3" fk-table-ref="TAB23" fkCardinality="7" identifying="true" name="CELULARES_DETALLE_VENTA_fk" physicalName="CELULARES_DETALLE_VENTA_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP45" populated="true" UUID="3c6d0bbd-7eb7-4ba8-b2d3-08d18ef040e7" fk-column-ref="COL25" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL46" populated="true" UUID="4c9f3aa9-e7d5-47ce-89a6-de5209ec3288" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="true" name="CLIENTE_VENTAS_fk" physicalName="cliente_ventas_fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
+   <relationship id="REL46" populated="true" UUID="4c9f3aa9-e7d5-47ce-89a6-de5209ec3288" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="true" name="CLIENTE_VENTAS_fk" physicalName="CLIENTE_VENTAS_fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP47" populated="true" UUID="cd01ff6d-1889-42a3-9792-f6e1690ae4e0" fk-column-ref="COL18" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL10" />
    </relationship>
-   <relationship id="REL48" populated="true" UUID="7830581d-1f9e-4437-95f4-e65092efc687" deferrability="7" deleteRule="3" fk-table-ref="TAB28" fkCardinality="7" identifying="true" name="VENTAS_FACTURA_fk" physicalName="ventas_factura_fk" pk-table-ref="TAB16" pkCardinality="2" updateRule="3" >
+   <relationship id="REL48" populated="true" UUID="7830581d-1f9e-4437-95f4-e65092efc687" deferrability="7" deleteRule="3" fk-table-ref="TAB28" fkCardinality="7" identifying="true" name="VENTAS_FACTURA_fk" physicalName="VENTAS_FACTURA_fk" pk-table-ref="TAB16" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP49" populated="true" UUID="62a3058d-13db-48b4-a2cd-4d3f6c025270" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL17" />
    </relationship>
-   <relationship id="REL50" populated="true" UUID="226aca66-67f4-4a7a-8bc7-50191211b7c4" deferrability="7" deleteRule="3" fk-table-ref="TAB23" fkCardinality="7" identifying="true" name="VENTAS_DETALLE_VENTA_fk" physicalName="ventas_detalle_venta_fk" pk-table-ref="TAB16" pkCardinality="2" updateRule="3" >
+   <relationship id="REL50" populated="true" UUID="226aca66-67f4-4a7a-8bc7-50191211b7c4" deferrability="7" deleteRule="3" fk-table-ref="TAB23" fkCardinality="7" identifying="true" name="VENTAS_DETALLE_VENTA_fk" physicalName="VENTAS_DETALLE_VENTA_fk" pk-table-ref="TAB16" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP51" populated="true" UUID="cbba25b9-54cc-4279-a4b6-df2533f0f5b5" fk-column-ref="COL24" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL17" />
    </relationship>
-   <relationship id="REL52" populated="true" UUID="5650ac4d-ba0a-474c-9716-bc5e41a4f96f" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="true" name="USUARIOS_VENTAS_fk" physicalName="usuarios_ventas_fk" pk-table-ref="TAB38" pkCardinality="2" updateRule="3" >
+   <relationship id="REL52" populated="true" UUID="5650ac4d-ba0a-474c-9716-bc5e41a4f96f" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="true" name="USUARIOS_VENTAS_fk" physicalName="USUARIOS_VENTAS_fk" pk-table-ref="TAB38" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP53" populated="true" UUID="7457572e-7797-4179-8dd0-a55807690a96" fk-column-ref="COL19" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL39" />
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="true"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
