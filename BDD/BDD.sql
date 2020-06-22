@@ -7,7 +7,7 @@ CREATE TABLE USUARIOS (
 );
 
 
-CREATE TABLE CLIENTE (
+CREATE TABLE CLIENTES (
                 cedula_cliente VARCHAR(10) NOT NULL,
                 nombre_cliente VARCHAR(30) NOT NULL,
                 apellido_cliente VARCHAR(30) NOT NULL,
@@ -139,7 +139,7 @@ INSERT INTO usuarios VALUES("1711111111","12345","CAJERO");
 
 
 
-
+INSERT INTO cliente
 
 
 
