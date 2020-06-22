@@ -17,13 +17,13 @@ function createWindow() {
         }
     })
     win.loadURL(url.format({
-        pathname: path.join(__dirname, './perfil.html'),
+        pathname: path.join(__dirname, './ventas.html'),
         protocol: 'file',
         slashes: true
     }))
 
     win.webContents.openDevTools() //Esta opción permite abrir las herramientas de desarrollador para revisar posibles errores en la aplicación a desarrollar
-        //win.setMenuBarVisibility(false) //Esta opción permite ocultar la barra de menú en la aplicación a desarrollar actualmente
+    win.setMenuBarVisibility(false) //Esta opción permite ocultar la barra de menú en la aplicación a desarrollar actualmente
 }
 
 
