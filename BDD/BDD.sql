@@ -27,10 +27,10 @@ CREATE TABLE VENTAS (
 
 CREATE TABLE FACTURAS (
                 codigo_venta VARCHAR(36) NOT NULL,
-                subtotal DECIMAL(5,2) NOT NULL,
-                descuento DECIMAL(5,2) NOT NULL,
-                iva DECIMAL(5,2) NOT NULL,
-                total DECIMAL(5,2) NOT NULL,
+                subtotal DECIMAL(7,2) NOT NULL,
+                descuento DECIMAL(7,2) NOT NULL,
+                iva DECIMAL(7,2) NOT NULL,
+                total DECIMAL(7,2) NOT NULL,
                 PRIMARY KEY (codigo_venta)
 );
 
@@ -40,7 +40,7 @@ CREATE TABLE CELULARES (
                 nombre_celular VARCHAR(150) NOT NULL,
                 marca_celular VARCHAR(50),
                 stock_celular INT NOT NULL,
-                precio_celular DECIMAL(5,2) NOT NULL,
+                precio_celular DECIMAL(7,2) NOT NULL,
                 PRIMARY KEY (id_celular)
 );
 
