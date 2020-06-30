@@ -80,3 +80,9 @@ password.addEventListener("blur", () => {
     }
   }
 });
+
+function usuario_no_econtrado_mostrar(mensaje) {
+  if (mensaje === "Con_error") {
+    usuario_no_econtrado.parentElement.style.display = "";
+  }
+}

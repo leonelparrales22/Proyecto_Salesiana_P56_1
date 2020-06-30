@@ -44,12 +44,12 @@
     <section id="wrapper" class="login-register login-sidebar" style="background-image:url(static/assets/images/background/login.jpg);">
         <div class="login-box card">
             <div class="card-body">
-                <form class="form-horizontal form-material" id="loginform" action="index.html">
+                <form class="form-horizontal form-material" id="login_form" action="/" method="POST">
                     <a href="javascript:void(0)" class="text-center db"><img src="static/assets/images/logo-icon.png" alt="Home" style="width: 50px;"/><br/><img src="static/assets/images/logo-text.png" alt="Home" / style="width: 150px;"></a>
                     <br>
                     <div class="form-group m-t-40">
                         <div class="col-xs-12">
-                            <input id="cedula" class="form-control" type="text" required="" placeholder="Cédula">
+                            <input name="cedula" id="cedula" class="form-control" type="text" required="" placeholder="Cédula">
                         </div>
                     </div>
                     <div class="alert">
@@ -59,7 +59,7 @@
                     <br>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input id="password" class="form-control" type="password" required="" placeholder="Contraseña">
+                            <input name="password" id="password" class="form-control" type="password" required="" placeholder="Contraseña">
                         </div>
                     </div>
                     <div class="alert">
@@ -111,9 +111,8 @@
                 </form> -->
                 <div class="alert">
                     <span id="usuario_no_encontrado" class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    Usuario no encontrado
+                    Cédula o Contraseña inválida.
                 </div>
-                
             </div>
         </div>
     </section>
@@ -144,6 +143,7 @@
         });
     </script>
     <script src="static/js/validaciones.js"></script>
+    <script>usuario_no_econtrado_mostrar("{{error}}")</script>
     
 </body>
 
