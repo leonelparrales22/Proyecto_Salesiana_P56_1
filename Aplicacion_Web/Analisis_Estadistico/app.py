@@ -1,6 +1,14 @@
+# DEPENDENCIAS:
+# FLASK
+# FLASK_MYSQL
+
 from flask import Flask, render_template, request
+from flaskext.mysql import MySQL
+
 
 app = Flask(__name__)
+
+# CONEXION DB
 
 
 @app.route('/login')
