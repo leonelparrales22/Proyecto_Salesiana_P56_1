@@ -90,6 +90,11 @@
                     </ul>
                     <!-- Cerrar Sesión -->
                     <!-- ============================================================== -->
+                    <a href="/dashboard" class="btn btn-success btn-lg">
+                        <span class="glyphicon glyphicon-log-out"></span>&nbsp&nbsp&nbsp&nbsp&nbspRefrescar&nbsp&nbsp&nbsp&nbsp&nbsp</a>  
+                    &nbsp
+                    <!-- Cerrar Sesión -->
+                    <!-- ============================================================== -->
                     <a href="/logout" class="btn btn-danger btn-lg">
                         <span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión
                     </a>
@@ -160,7 +165,8 @@
     <script src="{{ url_for('static', filename='assets/plugins/flot/excanvas.js') }}"></script>
 
     <script>
-        holaMundo("{{ texto }}")
+        g1('{{g1 | safe}}')
+        g2('{{g2 | safe}}')
     </script>
 </body>
 

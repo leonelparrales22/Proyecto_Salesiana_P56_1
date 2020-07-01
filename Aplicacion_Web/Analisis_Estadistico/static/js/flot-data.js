@@ -77,15 +77,8 @@ function update() {
 }
 update();
 
-function holaMundo(texto) {
-  console.log(texto);
-}
 //Flot Line Chart
 $(document).ready(function () {
-  function holaMundo() {
-    console.log("HolaMundo");
-  }
-  console.log("document ready");
   var offset = 0;
   plot();
 
@@ -416,3 +409,90 @@ $(function () {
   };
   $.plot($(".sales-bars-chart"), ds, options);
 });
+
+var data = "";
+
+//Grafico Numero 1
+// function grafico1(grafico) {
+//   grafico = JSON.parse(grafico)
+// }
+
+$(function (grafico) {
+  // var data = [
+  //   {
+  //     label: "Series Verga",
+  //     data: 50,
+  //     color: "#4f5467",
+  //   },
+  //   {
+  //     label: "Series 1",
+  //     data: 25,
+  //     color: "#26c6da",
+  //   },
+  //   {
+  //     label: "Series 2",
+  //     data: 24,
+  //     color: "#009efb",
+  //   },
+  //   {
+  //     label: "Series 3",
+  //     data: 1,
+  //     color: "#7460ee",
+  //   },
+  // ];
+  // var plotObj = $.plot($("#grafico_1"), data, {
+  //   series: {
+  //     pie: {
+  //       innerRadius: 0.5,
+  //       show: true,
+  //     },
+  //   },
+  //   grid: {
+  //     hoverable: true,
+  //   },
+  //   color: null,
+  //   tooltip: true,
+  //   tooltipOpts: {
+  //     content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+  //     shifts: {
+  //       x: 20,
+  //       y: 0,
+  //     },
+  //     defaultTheme: false,
+  //   },
+  // });
+});
+
+function g1(grafico) {
+  data = JSON.parse(grafico);
+  crear_dona("#grafico_1");
+}
+
+function g2(grafico) {
+  data = JSON.parse(grafico);
+  crear_dona("#grafico_2");
+}
+
+function crear_dona(nombre_id) {
+  var plotObj = $.plot($(nombre_id), data, {
+    series: {
+      pie: {
+        innerRadius: 0.5,
+        show: true,
+      },
+    },
+    grid: {
+      hoverable: true,
+    },
+    color: null,
+    tooltip: true,
+    tooltipOpts: {
+      content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+      shifts: {
+        x: 20,
+        y: 0,
+      },
+      defaultTheme: false,
+    },
+  });
+}
