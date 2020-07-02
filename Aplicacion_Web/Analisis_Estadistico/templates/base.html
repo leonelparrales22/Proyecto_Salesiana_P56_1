@@ -32,7 +32,10 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+        
 <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
@@ -158,15 +161,19 @@
     <script src="{{ url_for('static', filename='assets/plugins/flot/jquery.flot.crosshair.js') }}"></script>
     <script
         src="{{ url_for('static', filename='assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/flot-data.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/graficos.js') }}"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{ url_for('static', filename='assets/plugins/flot/excanvas.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
     <script>
         g1('{{g1 | safe}}')
         g2('{{g2 | safe}}')
+        g3(`{{g3 | safe}}`)
+        g4(`{{g4 | safe}}`)
     </script>
 </body>
 
