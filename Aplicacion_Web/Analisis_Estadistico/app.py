@@ -1,6 +1,8 @@
 # DEPENDENCIAS:
 # FLASK
 # FLASK_MYSQL
+from datetime import date, timedelta
+
 from flask import Flask, render_template, request, redirect, url_for, json, jsonify
 from flaskext.mysql import MySQL
 
@@ -18,7 +20,9 @@ conn = mysql.connect()
 cursor = conn.cursor()
 
 # BDD MANAGE
-colores = ["#75389b", "#2c63e2", "#e90504", "#fed10c", "#00a728", "#ff9a00"]
+# colores = ["#75389b", "#2c63e2", "#e90504", "#fed10c", "#00a728", "#ff9a00"]
+colores = ["rgba(119,77,155, 0.9)", "rgba(47,108,226, 0.9)", "rgba(233,64,55, 0.9)", "rgba(254,210,56, 0.9)",
+           "rgba(62,168,42, 0.9)", "rgba(255,156,59, 0.9)"]
 
 
 def comprobar_usuario(cedula_usuario, contrasenia):
@@ -28,7 +32,26 @@ def comprobar_usuario(cedula_usuario, contrasenia):
     return data
 
 
-def marca_celular_mas_vendido():
+# SELECT CELULARES.marca_celular, COUNT(CELULARES.marca_celular) AS PROMEDIO
+# FROM `DETALLE_VENTA`,`CELULARES`, `VENTAS`
+# WHERE DETALLE_VENTA.id_celular = CELULARES.id_celular
+# AND DETALLE_VENTA.codigo_venta = VENTAS.codigo_venta
+# AND YEAR(VENTAS.fecha) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH)
+# AND MONTH(VENTAS.fecha) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)
+# GROUP BY CELULARES.marca_celular
+
+# ultimos 7 dias
+# SELECT DATE_FORMAT(fecha, '%m/%d/%Y') FROM VENTAS WHERE fecha BETWEEN CURDATE() - INTERVAL 6 DAY AND CURDATE() + 1 ORDER BY `DATE_FORMAT(fecha, '%m/%d/%Y')` ASC
+# SELECT  DATE_FORMAT(fecha, '%Y-%m-%d') AS FECHA, SUM(CELULARES.precio_celular*DETALLE_VENTA.cantidad) AS TOTAL
+# FROM    VENTAS, DETALLE_VENTA, CELULARES
+# WHERE   fecha BETWEEN CURDATE() - INTERVAL 6 DAY AND CURDATE() + 1
+# AND VENTAS.codigo_venta = DETALLE_VENTA.codigo_venta
+# AND DETALLE_VENTA.id_celular = CELULARES.id_celular
+# GROUP BY FECHA
+# ORDER BY `FECHA` ASC
+
+
+def calcular_marca_mas_vendido():
     cursor.execute(
         'SELECT CELULARES.marca_celular, COUNT(CELULARES.marca_celular) AS PROMEDIO FROM `DETALLE_VENTA`,`CELULARES` '
         'WHERE DETALLE_VENTA.id_celular = CELULARES.id_celular GROUP BY CELULARES.marca_celular')
@@ -135,7 +158,57 @@ def calcular_rango_celulares_mas_vendido():
     return grafico
 
 
-marca_celular_mas_vendido()
+def calcular_reporte_ventas_semanal():
+    cursor.execute(
+        "SELECT  DATE_FORMAT(fecha, '%Y-%m-%d') AS FECHA, SUM(CELULARES.precio_celular*DETALLE_VENTA.cantidad) AS "
+        "TOTAL FROM    VENTAS, DETALLE_VENTA, CELULARES WHERE   fecha BETWEEN CURDATE() - INTERVAL 6 DAY AND CURDATE("
+        ") + 1 AND VENTAS.codigo_venta = DETALLE_VENTA.codigo_venta AND DETALLE_VENTA.id_celular = "
+        "CELULARES.id_celular GROUP BY FECHA ORDER BY `FECHA` ASC")
+    data = cursor.fetchall()
+    current_date = date.today()
+    fechas = [1, 2, 3, 4, 5, 6, 7]
+    for i in range(7):
+        fechas[i] = str(current_date - timedelta(days=i))
+    fechas.reverse()
+
+    totales = [1, 2, 3, 4, 5, 6, 7]
+    for i, x in enumerate(fechas):
+        totales[i] = 0
+        for y in data:
+            if x == y[0]:
+                totales[i] = str(y[1])
+                break
+    plantilla = '[{"fechas": '
+    plantilla += str(fechas)
+    plantilla += ',"data": '
+    plantilla += str(totales)
+    plantilla += '}]'
+    plantilla = plantilla.replace("'", '"')
+    return plantilla
+
+
+def calcular_reporte_ventas_mensual():
+    current_year = date.today().year
+    anios = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    info = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    for i, x in enumerate(anios):
+        cursor.execute(
+            "SELECT SUM(CELULARES.precio_celular) FROM VENTAS, DETALLE_VENTA, CELULARES WHERE VENTAS.codigo_venta = "
+            f"DETALLE_VENTA.codigo_venta AND DETALLE_VENTA.id_celular = CELULARES.id_celular AND MONTH(fecha) = {x} AND "
+            f"YEAR(fecha) = {current_year}")
+        data = cursor.fetchone()
+        if data[0] is None:
+            info[i] = '0'
+        else:
+            info[i] = str(data[0])
+    plantilla = '[{"totales": '
+    plantilla += str(info)
+    plantilla += '}]'
+    plantilla = plantilla.replace("'", '"')
+    print(plantilla)
+    return plantilla
+
+
 # WEB APLICATION
 validar = False
 
@@ -164,8 +237,10 @@ def dashboard():
     if not validar:
         return redirect(url_for('.index'))
     else:
-        return render_template("dashboard.html", texto=texto, g1=str(marca_celular_mas_vendido()),
-                               g2=calcular_rango_celulares_mas_vendido())
+        return render_template("dashboard.html", texto=texto, g1=calcular_marca_mas_vendido(),
+                               g2=calcular_rango_celulares_mas_vendido(), g3=calcular_reporte_ventas_semanal(),
+                               g4=calcular_reporte_ventas_mensual()
+                               )
 
 
 @app.route('/logout')
