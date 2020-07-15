@@ -24,6 +24,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/style_table.css">
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
@@ -155,51 +157,71 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Registro Usuarios</h4>
+                                <!--<h4 class="card-title">Registro Usuarios</h4>-->
                                 <div class="table-responsive">
-                                    <table id="mainTable" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Cédula</th>
-                                                <th>Contraseña</th>
-                                                <th>Rol</th>
-                                                <th>Editar</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>0923159099</td>
-                                                <td>12345</td>
-                                                <td>ADMIN</td>
-                                                <td><img src="../img/lapiz.jpg" width="25" height="25"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1745218956</td>
-                                                <td>12345</td>
-                                                <td>CAJERO</td>
-                                                <td><img src="../img/lapiz.jpg" width="25" height="25"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1725670390</td>
-                                                <td>12345</td>
-                                                <td>CAJERO</td>
-                                                <td><img src="../img/lapiz.jpg" width="25" height="25"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Column -->
-
-                        <!-- ============================================================== -->
-                        <!-- End PAge Content -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- Right sidebar -->
-                        <!-- ============================================================== -->
-                        <!-- .right-sidebar -->
+                                    <div class="table-wrapper">
+                                        <div class="table-title">
+                                            <div class="row">
+                                                <div class="col-sm-8">
+                                                    <h2>Registros <b>Usuarios</b></h2>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Añadir Nuevo</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Cédula</th>
+                                                    <th>Contraseña</th>
+                                                    <th>Rol</th>
+                                                    <th>Editar</th>
                         
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>0923159099</td>
+                                                    <td>12345</td>
+                                                    <td>ADMIN</td>                        
+                                                    <td>
+                                                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1725670390</td>
+                                        <td>12345</td>
+                                        <td>CAJERO</td>
+                                        <td>
+                                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1526374898</td>
+                                        <td>12345</td>
+                                        <td>CAJERO</td>
+                                        <td>
+                                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+            </div>
+    </div>
+    <!-- Column -->
+
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+
     <!-- ============================================================== -->
     <!-- End Right sidebar -->
     <!-- ============================================================== -->
@@ -231,6 +253,7 @@
     <script>
         window.jQuery = window.$ = require('jquery');
     </script>
+    <script src="../js/accion_table1.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
