@@ -22,7 +22,7 @@ function createWindow() {
         slashes: true
     }))
 
-    win.webContents.openDevTools() //Esta opción permite abrir las herramientas de desarrollador para revisar posibles errores en la aplicación a desarrollar
+    //win.webContents.openDevTools() //Esta opción permite abrir las herramientas de desarrollador para revisar posibles errores en la aplicación a desarrollar
     win.setMenuBarVisibility(false) //Esta opción permite ocultar la barra de menú en la aplicación a desarrollar actualmente
 }
 
