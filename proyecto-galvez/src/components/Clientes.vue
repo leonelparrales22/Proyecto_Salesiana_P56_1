@@ -1,25 +1,12 @@
 <template>
   <div class="page-wrapper">
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
     <div class="container-fluid">
-      <!-- ============================================================== -->
-      <!-- Bread crumb and right sidebar toggle -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- End Bread crumb and right sidebar toggle -->
-      <!-- ============================================================== -->
-
-      <!-- ============================================================== -->
-      <!-- Start Page Content -->
-      <!-- ============================================================== -->
-      <br />
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Registro Clientes</h4>
+              <h4 class="card-title tabla-titulo">Registro Clientes</h4>
+              <hr />
               <div class="table-responsive">
                 <table id="mainTable" class="table">
                   <thead>
@@ -85,12 +72,18 @@
         </div>
       </div>
     </div>
+    <FooterComponent />
   </div>
+
   <!-- Column -->
 </template>
 
 <script>
+import FooterComponent from "./FooterComponent.vue";
 export default {
   name: "Clientes",
+  components: {
+    FooterComponent
+  }
 };
 </script>

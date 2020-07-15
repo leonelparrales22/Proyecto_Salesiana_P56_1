@@ -1,6 +1,7 @@
 <template>
   <footer class="footer">
-    <center>© 2017 Admin Pro by wrappixel.com</center>
+    <center>© 2020 Leonel Parrales, Diego Gonzalez
+    </center>
   </footer>
 </template>
 

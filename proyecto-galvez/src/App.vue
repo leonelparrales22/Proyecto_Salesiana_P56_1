@@ -9,7 +9,6 @@
 
 <script>
 import HeaderComponent from "./components/HeaderComponent.vue";
-// import Loading from "./components/Loading.vue";
 import BarraLateral from "./components/BarraLateral.vue";
 
 export default {
@@ -25,5 +24,5 @@ export default {
 <style>
 @import "./assets/css/bootstrap.min.css";
 @import "./assets/css/style.css";
-@import "./assets/css/default-dark.css";
+@import "./assets/css/blue-dark.css";
 </style>
