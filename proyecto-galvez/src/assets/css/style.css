@@ -8459,18 +8459,15 @@ table.table tr td {
   text-align: right;
   vertical-align: middle;
 }
-.elvar-caja {
-  /* ma */
-}
 
 .mismo-bloque {
   display: inline-block !important;
 }
 table.table tr th:first-child {
-  width: 60px;
+  width: 400px;
 }
 table.table tr th:last-child {
-  width: 100px;
+  width: 2px;
 }
 table.table-striped tbody tr:nth-of-type(odd) {
   background-color: #fcfcfc;

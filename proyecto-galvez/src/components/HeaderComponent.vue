@@ -8,7 +8,7 @@
       <!-- Logo -->
       <!-- ============================================================== -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">
+        <router-link to="/" class="navbar-brand">
           <!-- Logo icon -->
           <b>
             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -41,7 +41,7 @@
               alt="homepage"
             />
           </span>
-        </a>
+        </router-link>
       </div>
       <!-- ============================================================== -->
       <!-- End Logo -->

@@ -6,13 +6,16 @@ import Preventa from "./components/Preventa.vue";
 import Clientes from "./components/Clientes.vue";
 import Celulares from "./components/Celulares.vue";
 
-
-
 Vue.config.productionTip = false;
+
+Vue.filter("moneda", function(valor) {
+  // eslint-disable-next-line no-undef
+  return accounting.formatMoney(valor);
+});
 
 Vue.use(VueRouter);
 const routes = [
-  { path: "/celulares", component: Celulares },
+  { path: "/celulares/:pagenow?", name: "celulares", component: Celulares },
   { path: "/preventa", component: Preventa },
   { path: "/cliente", component: Clientes },
   { path: "/", component: BienvenidoCajero },
