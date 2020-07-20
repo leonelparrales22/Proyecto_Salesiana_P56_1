@@ -17,9 +17,10 @@
                         <label>Clientes</label>
                         <select class="form-control custom-select">
                           <option>--Seleccione un cliente--</option>
-                          <option>Mario Suin</option>
-                          <option>Esteban González</option>
-                          <option>Marco Maila</option>
+                          <option v-for="cliente in preventa" :key="cliente.cedula_cliente"> 
+                            {{cliente.nombre_cliente}} {{cliente.apellido_cliente}}</option>
+                          <!-- <option>Esteban González</option>
+                          <option>Marco Maila</option> -->
                         </select>
                       </div>
                     </div>
@@ -68,11 +69,41 @@
 </template>
 
 <script>
+import axios from "axios";
 import FooterComponent from "./FooterComponent.vue";
 export default {
   name: "Preventa",
   components: {
     FooterComponent,
   },
+  mounted() {
+    this.getClientes();
+  },
+  watch: {
+    $route() {
+      this.rest = "http://localhost:3100/todos-clientes";
+      this.getClientes();
+    }
+  },
+  data() {
+    return {
+      rest: "http://localhost:3100/todos-clientes",
+      preventa: [],
+      total: 0
+    };
+  },
+  methods: {
+    getClientes() {
+      axios
+        .get(this.rest)
+        .then(data => {
+          this.preventa = data.data.result;
+          this.total = data.data.total;
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
+  }
 };
 </script>
