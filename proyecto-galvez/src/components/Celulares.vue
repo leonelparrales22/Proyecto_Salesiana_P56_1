@@ -66,7 +66,7 @@
                               class="edit"
                               data-toggle="modal"
                               data-book-id="LEONELPAPIPARRALES"
-                              @click="editar_celular(celular.id_celular)"
+                              @click="editar_celular(celular.id_celular, celular.nombre_celular, celular.marca_celular, celular.stock_celular, celular.precio_celular )"
                             >
                               <div class="hover01">
                                 <div>
@@ -129,24 +129,14 @@
                       <div class="modal-body">
                         <div class="form-group">
                           <label>Modelo</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            v-model="celular.modelo"
-                            name="nombre_celular"
-                          />
+                          <input type="text" class="form-control" v-model="celular.modelo" />
                           <div
                             v-if="submitted && !$v.celular.modelo.required"
                           >Este campo es requerido</div>
                         </div>
                         <div class="form-group">
                           <label>Marca</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            v-model="celular.marca"
-                            name="marca_celular"
-                          />
+                          <input type="text" class="form-control" v-model="celular.marca" />
                           <div
                             v-if="submitted && !$v.celular.marca.required"
                           >Este campo es requerido</div>
@@ -157,7 +147,6 @@
                             type="number"
                             class="form-control"
                             v-model="celular.stock"
-                            name="stock_celular"
                             min="1"
                             max="100"
                           />
@@ -174,7 +163,6 @@
                             type="number"
                             class="form-control"
                             v-model="celular.precio"
-                            name="precio_celular"
                             min="1"
                             max="5000"
                           />
@@ -203,7 +191,7 @@
               <div id="editEmployeeModal" class="modal fade">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <form>
+                    <form @submit.prevent="editar_celular_valores()">
                       <div class="modal-header">
                         <h4 class="modal-title">Editar Celular</h4>
                         <button
@@ -215,20 +203,50 @@
                       </div>
                       <div class="modal-body">
                         <div class="form-group">
-                          <label>Name</label>
-                          <input type="text" class="form-control" required />
+                          <label>Modelo</label>
+                          <input type="text" class="form-control" v-model="editar.modelo" />
+                          <div
+                            v-if="!$v.editar.modelo.required"
+                          >Este campo es requerido</div>
                         </div>
                         <div class="form-group">
-                          <label>Email</label>
-                          <input type="email" class="form-control" required />
+                          <label>Marca</label>
+                          <input type="text" class="form-control" v-model="editar.marca" />
+                          <div
+                            v-if="!$v.editar.marca.required"
+                          >Este campo es requerido</div>
                         </div>
                         <div class="form-group">
-                          <label>Address</label>
-                          <textarea class="form-control" required></textarea>
+                          <label>Stock</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            v-model="editar.stock"
+                            min="1"
+                            max="100"
+                          />
+                          <div
+                            v-if="!$v.editar.stock.required"
+                          >Este campo es requerido</div>
+                          <div
+                            v-if="$v.editar.stock.required && !$v.editar.stock.between"
+                          >Valores entre 1 y 100</div>
                         </div>
                         <div class="form-group">
-                          <label>Phone</label>
-                          <input type="text" class="form-control" required />
+                          <label>Precio</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            v-model="editar.precio"
+                            min="1"
+                            max="5000"
+                          />
+                          <div
+                            v-if="!$v.editar.precio.required"
+                          >Este campo es requerido</div>
+                          <div
+                            v-if="$v.editar.precio.required && !$v.editar.precio.between"
+                          >Valores entre 1 y 5000</div>
                         </div>
                       </div>
                       <div class="modal-footer">
@@ -236,9 +254,9 @@
                           type="button"
                           class="btn btn-default"
                           data-dismiss="modal"
-                          value="Cancel"
+                          value="Cancelar"
                         />
-                        <input type="submit" class="btn btn-info" value="Save" />
+                        <input type="submit" class="btn btn-info" value="Editar" />
                       </div>
                     </form>
                   </div>
@@ -258,7 +276,6 @@
 import axios from "axios";
 import FooterComponent from "./FooterComponent.vue";
 import { required, minLength, between } from "vuelidate/lib/validators";
-import $ from "jquery";
 export default {
   name: "Celulares",
   components: {
@@ -267,6 +284,26 @@ export default {
   validations: {
     submitted: false,
     celular: {
+      modelo: {
+        required,
+        minLenght: minLength(1)
+      },
+      marca: {
+        required,
+        minLenght: minLength(1)
+      },
+      stock: {
+        required,
+        minLenght: minLength(1),
+        between: between(1, 100)
+      },
+      precio: {
+        required,
+        minLenght: minLength(1),
+        between: between(1, 5000)
+      }
+    },
+    editar: {
       modelo: {
         required,
         minLenght: minLength(1)
@@ -297,21 +334,6 @@ export default {
       }
     }
     this.getCelulares();
-    console.log("kk");
-    $("#editEmployeeModal").on("show.bs.modal", function(e) {
-      //get data-id attribute of the clicked element
-      var bookId = $(e.relatedTarget).data("book-id");
-      console.log("OE", bookId);
-      //populate the textbox
-      $(e.currentTarget)
-        .find('input[name="bookId"]')
-        .val(bookId);
-    });
-    $(document).ready(function() {
-      $("#editEmployeeModal").on("show.bs.modal", function() {
-        alert("Hello World!");
-      });
-    });
   },
   watch: {
     $route() {
@@ -336,7 +358,8 @@ export default {
         precio: ""
       },
       // Editar
-      editar:{
+      editar: {
+        id: "",
         modelo: "",
         marca: "",
         stock: "",
@@ -406,8 +429,47 @@ export default {
       }
       this.save();
     },
-    editar_celular(id) {
-      console.log("dddjd", id);
+    editar_celular(id, nombre, marca, stock, precio) {
+      this.editar.id = id;
+      this.editar.modelo = nombre;
+      this.editar.marca = marca;
+      this.editar.stock = stock;
+      this.editar.precio = precio;
+    },
+    editar_celular_valores() {
+      this.$v.editar.$touch();
+      if (this.$v.editar.$invalid) {
+        console.log("ERRROR", this.$v);
+        return false;
+      }
+      const modal = document.getElementById("editEmployeeModal");
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+      modal.setAttribute("style", "display: none");
+      const modalBackdrops = document.getElementsByClassName("modal-backdrop");
+      document.body.removeChild(modalBackdrops[0]);
+      document.getElementById("addEmployeeModal").click();
+      document.getElementById("wrapper").click();
+      document.getElementById("boton1").blur();
+      document.getElementById("wrapper").click();
+      var body = document.body;
+      body.classList.remove("modal-open");
+      axios
+        .put("http://localhost:3100/editar-celular", {
+          id_celular: this.editar.id,
+          nombre_celular: this.editar.modelo,
+          marca_celular: this.editar.marca,
+          stock_celular: this.editar.stock,
+          precio_celular: this.editar.precio
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
+      this.actualizar_paginado();
+      this.getCelulares();
     }
   }
 };
