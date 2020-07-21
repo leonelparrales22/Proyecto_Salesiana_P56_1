@@ -23,27 +23,10 @@
               </div>
 
               <hr />
-
               <!-- INICIO TABLA -->
               <div class="container-xl">
                 <div class="table-responsive">
                   <div class="table-wrapper">
-                    <!-- <div class="table-title">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <h2>
-                            Manage
-                            <b>Employees</b>
-                          </h2>
-                        </div>
-                        <div class="col-sm-6">
-                          <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal">
-                            <i class="material-icons">&#xE15C;</i>
-                            <span>Delete</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>-->
                     <table class="table table-striped table-hover" v-if="celulares">
                       <thead>
                         <tr>
@@ -62,6 +45,7 @@
                           <td>{{ celular.precio_celular | moneda }}</td>
                           <td class="centrar-horizontal">
                             <a
+                              id="boton_lapiz"
                               href="#editEmployeeModal"
                               class="edit"
                               data-toggle="modal"
@@ -112,7 +96,6 @@
                 </div>
               </div>
               <!--Add Modal HTML -->
-              <!-- :class="{ in: modalShown }" -->
               <div id="addEmployeeModal" class="modal fade">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -205,16 +188,12 @@
                         <div class="form-group">
                           <label>Modelo</label>
                           <input type="text" class="form-control" v-model="editar.modelo" />
-                          <div
-                            v-if="!$v.editar.modelo.required"
-                          >Este campo es requerido</div>
+                          <div v-if="!$v.editar.modelo.required">Este campo es requerido</div>
                         </div>
                         <div class="form-group">
                           <label>Marca</label>
                           <input type="text" class="form-control" v-model="editar.marca" />
-                          <div
-                            v-if="!$v.editar.marca.required"
-                          >Este campo es requerido</div>
+                          <div v-if="!$v.editar.marca.required">Este campo es requerido</div>
                         </div>
                         <div class="form-group">
                           <label>Stock</label>
@@ -225,9 +204,7 @@
                             min="1"
                             max="100"
                           />
-                          <div
-                            v-if="!$v.editar.stock.required"
-                          >Este campo es requerido</div>
+                          <div v-if="!$v.editar.stock.required">Este campo es requerido</div>
                           <div
                             v-if="$v.editar.stock.required && !$v.editar.stock.between"
                           >Valores entre 1 y 100</div>
@@ -241,9 +218,7 @@
                             min="1"
                             max="5000"
                           />
-                          <div
-                            v-if="!$v.editar.precio.required"
-                          >Este campo es requerido</div>
+                          <div v-if="!$v.editar.precio.required">Este campo es requerido</div>
                           <div
                             v-if="$v.editar.precio.required && !$v.editar.precio.between"
                           >Valores entre 1 y 5000</div>
@@ -262,6 +237,7 @@
                   </div>
                 </div>
               </div>
+
               <!-- FIN TABLA -->
             </div>
           </div>
@@ -271,8 +247,12 @@
     <FooterComponent />
   </div>
 </template>
+<style>
+@import "./../assets/css/bootstrap.min.css";
+</style>
 
 <script>
+// import $ from "jquery";
 import axios from "axios";
 import FooterComponent from "./FooterComponent.vue";
 import { required, minLength, between } from "vuelidate/lib/validators";
@@ -324,6 +304,15 @@ export default {
       }
     }
   },
+  updated() {
+    console.log("CAMBIO");
+    if (this.butt_actualizar) {
+      this.actualizar_paginado();
+      this.getCelulares();
+      this.butt_actualizar = false;
+    }
+    console.log(this.myModel);
+  },
   mounted() {
     this.pagenow = this.$route.params.pagenow;
     if (this.pagenow != null) {
@@ -365,10 +354,13 @@ export default {
         stock: "",
         precio: ""
       },
-      modalShown: false
+      butt_actualizar: false
     };
   },
   methods: {
+    openModel() {
+      this.myModel = true;
+    },
     getCelulares() {
       axios
         .get(this.rest)
@@ -448,10 +440,6 @@ export default {
       modal.setAttribute("style", "display: none");
       const modalBackdrops = document.getElementsByClassName("modal-backdrop");
       document.body.removeChild(modalBackdrops[0]);
-      document.getElementById("addEmployeeModal").click();
-      document.getElementById("wrapper").click();
-      document.getElementById("boton1").blur();
-      document.getElementById("wrapper").click();
       var body = document.body;
       body.classList.remove("modal-open");
       axios
@@ -470,6 +458,8 @@ export default {
         });
       this.actualizar_paginado();
       this.getCelulares();
+      this.butt_actualizar = true;
+      return;
     }
   }
 };
