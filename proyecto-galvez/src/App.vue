@@ -1,22 +1,16 @@
 <template>
   <div id="main-wrapper">
     <!-- <Loading /> -->
-    <HeaderComponent />
-    <BarraLateral />
     <router-view />
   </div>
 </template>
 
 <script>
-import HeaderComponent from "./components/HeaderComponent.vue";
-import BarraLateral from "./components/BarraLateral.vue";
 
 export default {
   name: "App",
   components: {
-    HeaderComponent,
     // Loading,
-    BarraLateral,
   },
 };
 </script>

@@ -16,8 +16,6 @@
               <i class="mdi mdi-cart"></i>
               <span class="hide-menu">Ventas</span>
             </router-link>
-            <!-- <router-link to="/home" active-class="active">Inicio</router-link> -->
-
             <ul aria-expanded="false" class="collapse"></ul>
           </li>
           <li>
@@ -52,6 +50,6 @@
 
 <script>
 export default {
-  name: "BarraLateral",
+  name: "BarraLateral"
 };
 </script>

@@ -13,33 +13,17 @@
           <b>
             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
             <!-- Dark Logo icon -->
-            <img
-              src="../assets/img/logo-icon.png"
-              alt="homepage"
-              class="dark-logo"
-            />
+            <img src="../assets/img/logo-icon.png" alt="homepage" class="dark-logo" />
             <!-- Light Logo icon -->
-            <img
-              src="../assets/img/logo-light-icon.png"
-              alt="homepage"
-              class="light-logo"
-            />
+            <img src="../assets/img/logo-light-icon.png" alt="homepage" class="light-logo" />
           </b>
           <!--End Logo icon -->
           <!-- Logo text -->
           <span>
             <!-- dark Logo text -->
-            <img
-              src="../assets/img/logo-text.png"
-              alt="homepage"
-              class="dark-logo"
-            />
+            <img src="../assets/img/logo-text.png" alt="homepage" class="dark-logo" />
             <!-- Light Logo text -->
-            <img
-              src="../assets/img/logo-light-text.png"
-              class="light-logo"
-              alt="homepage"
-            />
+            <img src="../assets/img/logo-light-text.png" class="light-logo" alt="homepage" />
           </span>
         </router-link>
       </div>
@@ -69,20 +53,19 @@
             </a>
           </li>
           <!-- <li class="nav-item hidden-sm-down"></li> -->
-          <li>
-            
-          </li>
+          <li></li>
           <div class="centrado">
-          <a class="btn btn-warning btn-lg">
+            <a class="btn btn-warning btn-lg">
               <span class="glyphicon glyphicon-log-out"></span>Cajero
             </a>
-        </div>
+          </div>
         </ul>
-        
 
-        <a href="#" class="btn btn-danger btn-lg">
-          <span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión
-        </a>
+          <router-link to="/login">
+          <a href="#" class="btn btn-danger btn-lg">
+            <span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión
+          </a>
+          </router-link>  
       </div>
     </nav>
   </header>
@@ -90,6 +73,6 @@
 
 <script>
 export default {
-  name: "HeaderComponent",
+  name: "HeaderComponent"
 };
 </script>

@@ -1,18 +1,15 @@
-
+// Componentes principales
 import Vue from "vue";
 import App from "./App.vue";
+// Plugins
 import VueRouter from "vue-router";
 import Vuelidate from "vuelidate";
-import BienvenidoCajero from "./components/BienvenidoCajero.vue";
-import Preventa from "./components/Preventa.vue";
-import Clientes from "./components/Clientes.vue";
-import Celulares from "./components/Celulares.vue";
-
-// import BootstrapVue from "bootstrap-vue";
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
-// import "./assets/css/bootstrap.min.css";
-
+// Subrutas
+import BienvenidoCajero from "./views/BienvenidoCajero.vue";
+import Preventa from "./views/Preventa.vue";
+import Clientes from "./views/Clientes.vue";
+import Celulares from "./views/Celulares.vue";
+import Login from "./views/Login.vue";
 
 Vue.config.productionTip = false;
 
@@ -24,10 +21,12 @@ Vue.filter("moneda", function(valor) {
 Vue.use(VueRouter);
 Vue.use(Vuelidate);
 
+// Principal
 const routes = [
   { path: "/celulares/:pagenow?", name: "celulares", component: Celulares },
   { path: "/preventa", component: Preventa },
   { path: "/cliente", component: Clientes },
+  { path: "/login", component: Login },
   { path: "/", component: BienvenidoCajero },
   { path: "*", component: BienvenidoCajero },
 ];
@@ -35,6 +34,7 @@ const router = new VueRouter({
   routes,
   mode: "history",
 });
+
 new Vue({
   router,
   render: (h) => h(App),
