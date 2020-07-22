@@ -52,7 +52,7 @@
               <i class="ti-menu"></i>
             </a>
           </li>
-          <!-- <li class="nav-item hidden-sm-down"></li> -->
+          <li class="nav-item hidden-sm-down"></li>
           <li></li>
           <div class="centrado">
             <a class="btn btn-warning btn-lg">
@@ -61,11 +61,11 @@
           </div>
         </ul>
 
-          <router-link to="/login">
+        <router-link to="/login">
           <a href="#" class="btn btn-danger btn-lg">
             <span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión
           </a>
-          </router-link>  
+        </router-link>
       </div>
     </nav>
   </header>
@@ -73,6 +73,6 @@
 
 <script>
 export default {
-  name: "HeaderComponent"
+  name: "HeaderComponent",
 };
 </script>

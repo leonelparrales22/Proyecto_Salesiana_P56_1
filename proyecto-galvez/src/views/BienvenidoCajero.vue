@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main-wrapper">
     <HeaderComponent />
     <BarraLateral />
     <div class="page-wrapper">

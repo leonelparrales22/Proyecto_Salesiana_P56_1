@@ -10,6 +10,7 @@ import Preventa from "./views/Preventa.vue";
 import Clientes from "./views/Clientes.vue";
 import Celulares from "./views/Celulares.vue";
 import Login from "./views/Login.vue";
+import Contenedor from "./views/Contenedor.vue";
 
 Vue.config.productionTip = false;
 
@@ -23,12 +24,21 @@ Vue.use(Vuelidate);
 
 // Principal
 const routes = [
-  { path: "/celulares/:pagenow?", name: "celulares", component: Celulares },
-  { path: "/preventa", component: Preventa },
-  { path: "/cliente", component: Clientes },
   { path: "/login", component: Login },
-  { path: "/", name:"/", component: BienvenidoCajero },
+  { path: "/", name: "/", component: Contenedor },
   { path: "*", component: BienvenidoCajero },
+  {
+    path: "/contenedor",
+    component: Contenedor,
+    children: [
+      { path: "celulares/:pagenow?", name: "celulares", component: Celulares },
+      { path: "preventa", component: Preventa },
+      { path: "cliente", component: Clientes },
+      { path: "/", component: BienvenidoCajero },
+      { path: "*", component: BienvenidoCajero },
+
+    ],
+  },
 ];
 const router = new VueRouter({
   routes,

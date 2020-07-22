@@ -131,9 +131,9 @@ export default {
       no_se_encontro_usuario: false,
       usuario: {
         cedula: "",
-        contrasenia: ""
+        contrasenia: "",
       },
-      result: []
+      result: [],
     };
   },
   methods: {
@@ -144,7 +144,7 @@ export default {
       this.submitted_2 = true;
     },
     appear_no_se_encontro_usuario() {
-      this.no_se_encontro_usuario = true;
+      this.no_se_encontro_usuario = !this.no_se_encontro_usuario;
     },
     login() {
       this.submitted_1 = true;
@@ -159,25 +159,28 @@ export default {
         .get("http://localhost:3100/login", {
           params: {
             cedula_usuario: this.usuario.cedula,
-            contrasenia: this.usuario.contrasenia
-          }
+            contrasenia: this.usuario.contrasenia,
+          },
         })
-        .then(data => {
+        .then((data) => {
           this.result = data.data.result;
           if (this.result.length > 0) {
             console.log(this.result[0].cedula_usuario);
             console.log(this.result[0].contrasenia);
             console.log(this.result[0].rol);
-            this.$router.push("/");
+            this.$router.push("/contenedor/");
           } else {
             console.log("No se encontro usuario");
             this.appear_no_se_encontro_usuario();
+            setTimeout(() => {
+              this.appear_no_se_encontro_usuario();
+            }, 1200);
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
-    }
+    },
   },
   validations: {
     submitted_1: false,
@@ -186,12 +189,12 @@ export default {
       cedula: {
         required,
         minLength: minLength(10),
-        maxLength: maxLength(10)
+        maxLength: maxLength(10),
       },
       contrasenia: {
-        required
-      }
-    }
-  }
+        required,
+      },
+    },
+  },
 };
 </script>

@@ -1,6 +1,5 @@
 <template>
-  <div id="main-wrapper">
-    <!-- <Loading /> -->
+  <div>
     <router-view />
   </div>
 </template>

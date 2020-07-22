@@ -7,10 +7,11 @@
         <ul id="sidebarnav">
           <li class="nav-devider"></li>
           <li class="nav-small-cap">Acciones</li>
-          <li active-class="active">
+
+          <li :class="{'active': subIsActive('/contenedor/preventa')}">
             <router-link
               class="has-arrow waves-effect waves-dark"
-              to="/preventa"
+              to="/contenedor/preventa"
               aria-expanded="false"
             >
               <i class="mdi mdi-cart"></i>
@@ -18,10 +19,11 @@
             </router-link>
             <ul aria-expanded="false" class="collapse"></ul>
           </li>
-          <li>
+
+          <li :class="{'active': subIsActive('/contenedor/cliente')}">
             <router-link
               class="has-arrow waves-effect waves-dark"
-              to="/cliente"
+              to="/contenedor/cliente"
               aria-expanded="false"
             >
               <i class="mdi mdi-account-circle"></i>
@@ -29,7 +31,7 @@
             </router-link>
             <ul aria-expanded="false" class="collapse"></ul>
           </li>
-          <li>
+          <li :class="{'active': subIsActive('/contenedor/celulares')}">
             <router-link
               class="has-arrow waves-effect waves-dark"
               :to="{ name: 'celulares', params: { pagenow: 1 } }"
@@ -48,8 +50,22 @@
   </aside>
 </template>
 
+<style>
+</style>
+
 <script>
 export default {
-  name: "BarraLateral"
+  name: "BarraLateral",
+  methods: {
+    subIsActive(input) {
+      this.validar = true;
+
+      const paths = Array.isArray(input) ? input : [input];
+
+      return paths.some((path) => {
+        return this.$route.path.indexOf(path) === 0; // current path starts with this path string
+      });
+    },
+  },
 };
 </script>
