@@ -25,26 +25,69 @@ Login register and recover password Page
   height: 100%;
   width: 100%;
   padding: 10% 0;
-  position: fixed; }
+  position: fixed;
+}
 
 .login-box {
   width: 400px;
-  margin: 0 auto; }
-  .login-box .footer {
-    width: 100%;
-    left: 0px;
-    right: 0px; }
-  .login-box .social {
-    display: block;
-    margin-bottom: 30px; }
+  margin: 0 auto;
+}
+.login-box .footer {
+  width: 100%;
+  left: 0px;
+  right: 0px;
+}
+.login-box .social {
+  display: block;
+  margin-bottom: 30px;
+}
 
 #recoverform {
-  display: none; }
+  display: none;
+}
 
 .login-sidebar {
   padding: 0px;
-  margin-top: 0px; }
-  .login-sidebar .login-box {
-    right: 0px;
-    position: absolute;
-    height: 100%; }
+  margin-top: 0px;
+}
+.login-sidebar .login-box {
+  right: 0px;
+  position: absolute;
+  height: 100%;
+}
+
+.fondo {
+  background-image: url("../img/login.jpg");
+}
+
+::placeholder { 
+  /* color: deeppink !important; */
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+
+/* The alert message box */
+.alert {
+  padding: 20px !important;
+  background-color: #f44336 !important; /* Red */
+  color: white !important;
+  margin-bottom: 15px !important;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px !important;
+  color: white !important;
+  font-weight: bold !important;
+  float: right !important;
+  font-size: 22px !important;
+  line-height: 20px !important;
+  cursor: pointer !important;
+  transition: 0.3s !important;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black !important;
+}

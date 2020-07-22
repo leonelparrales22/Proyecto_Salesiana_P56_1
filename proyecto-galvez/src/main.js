@@ -27,7 +27,7 @@ const routes = [
   { path: "/preventa", component: Preventa },
   { path: "/cliente", component: Clientes },
   { path: "/login", component: Login },
-  { path: "/", component: BienvenidoCajero },
+  { path: "/", name:"/", component: BienvenidoCajero },
   { path: "*", component: BienvenidoCajero },
 ];
 const router = new VueRouter({
