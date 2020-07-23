@@ -56,7 +56,7 @@
                   <br />
                   <br />
                   <center>
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-success" v-on:click="aplastarBoton()">
                       <i class="fa fa-check"></i> Realizar venta
                     </button>
                   </center>
@@ -118,6 +118,9 @@ export default {
         .catch((err) => {
           console.error(err);
         });
+    },
+    aplastarBoton(){
+      this.$router.push("/contenedor/factura")
     }
   }
 };
