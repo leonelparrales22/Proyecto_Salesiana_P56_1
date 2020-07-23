@@ -11,6 +11,7 @@ import Clientes from "./views/Clientes.vue";
 import Celulares from "./views/Celulares.vue";
 import Login from "./views/Login.vue";
 import Contenedor from "./views/Contenedor.vue";
+import Factura from "./views/Factura.vue"
 
 Vue.config.productionTip = false;
 
@@ -33,7 +34,8 @@ const routes = [
     children: [
       { path: "celulares/:pagenow?", name: "celulares", component: Celulares },
       { path: "preventa", component: Preventa },
-      { path: "cliente", component: Clientes },
+      { path: "factura", component: Factura },
+      { path: "cliente/:pagenow?", name: "clientes", component: Clientes },
       { path: "/", component: BienvenidoCajero },
       { path: "*", component: BienvenidoCajero },
 

@@ -23,7 +23,7 @@
           <li :class="{'active': subIsActive('/contenedor/cliente')}">
             <router-link
               class="has-arrow waves-effect waves-dark"
-              to="/contenedor/cliente"
+              :to="{ name: 'clientes', params: { pagenow: 1 } }"
               aria-expanded="false"
             >
               <i class="mdi mdi-account-circle"></i>
