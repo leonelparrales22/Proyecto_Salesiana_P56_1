@@ -252,16 +252,13 @@
         </div>
       </div>
     </div>
-    <FooterComponent />
   </div>
 </template>
 
 <script>
-import FooterComponent from "../components/FooterComponent.vue";
 export default {
   name: "Clientes",
   components: {
-    FooterComponent,
   },
 };
 </script>

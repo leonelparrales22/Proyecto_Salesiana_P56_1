@@ -3,19 +3,21 @@
     <HeaderComponent />
     <BarraLateral />
     <router-view />
+    <FooterComponent />
   </div>
 </template>
 
 <script>
-
 import HeaderComponent from "../components/HeaderComponent.vue";
 import BarraLateral from "../components/BarraLateral.vue";
+import FooterComponent from "../components/FooterComponent.vue";
 
 export default {
   name: "Contenedor",
   components: {
     HeaderComponent,
-    BarraLateral
+    BarraLateral,
+    FooterComponent
   },
 };
 </script>
