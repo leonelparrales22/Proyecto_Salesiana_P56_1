@@ -244,7 +244,6 @@
         </div>
       </div>
     </div>
-    <FooterComponent />
   </div>
 </template>
 <style>
@@ -253,13 +252,11 @@
 
 <script>
 // import $ from "jquery";
-import FooterComponent from "../components/FooterComponent.vue";
 import axios from "axios";
 import { required, minLength, between } from "vuelidate/lib/validators";
 export default {
   name: "Celulares",
   components: {
-    FooterComponent,
   },
   validations: {
     submitted: false,
@@ -379,7 +376,7 @@ export default {
       this.pagenow = this.$route.params.pagenow;
       if (this.pagenow != null) {
         if (this.pagenow > 1) {
-          this.rest += `?desde=${((this.pagenow - 1) * 7)}`;
+          this.rest += `?desde=${(this.pagenow - 1) * 7}`;
         } else {
           this.rest += `?desde=0`;
         }
