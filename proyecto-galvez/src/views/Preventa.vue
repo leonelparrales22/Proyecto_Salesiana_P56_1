@@ -18,7 +18,7 @@
                         <select class="form-control custom-select">
                           <option>--Seleccione un cliente--</option>
                           <option
-                            v-for="cliente in preventa"
+                            v-for="cliente in clientes"
                             :key="cliente.cedula_cliente"
                           >{{cliente.nombre_cliente}} {{cliente.apellido_cliente}}</option>
                           <!-- <option>Esteban González</option>
@@ -35,9 +35,12 @@
                         <label>Celulares</label>
                         <select class="form-control custom-select">
                           <option>--Seleccione un celular--</option>
-                          <option>Samsung A50</option>
+                          <option v-for="celular in celulares" :key="celular.id_celular">
+                            {{ celular.nombre_celular }}
+                          </option>
+                          <!-- <option>Samsung A50</option>
                           <option>Iphone 5S</option>
-                          <option>Samsung j6</option>
+                          <option>Samsung j6</option> -->
                         </select>
                       </div>
                     </div>
@@ -80,17 +83,22 @@ export default {
   },
   mounted() {
     this.getClientes();
+    this.getCelulares();
   },
   watch: {
     $route() {
       this.rest = "http://localhost:3100/todos-clientes";
+      this.rest1 = "http://localhost:3100/todos-celulares";
       this.getClientes();
+      this.getCelulares();
     },
   },
   data() {
     return {
       rest: "http://localhost:3100/todos-clientes",
-      preventa: [],
+      rest1: "http://localhost:3100/todos-celulares",
+      clientes: [],
+      celulares: [],
       total: 0,
     };
   },
@@ -99,13 +107,24 @@ export default {
       axios
         .get(this.rest)
         .then((data) => {
-          this.preventa = data.data.result;
+          this.clientes = data.data.result;
           this.total = data.data.total;
         })
         .catch((err) => {
           console.error(err);
         });
     },
-  },
+  getCelulares() {
+      axios
+        .get(this.rest1)
+        .then((data) => {
+          this.celulares = data.data.result;
+          // this.paginado = 20
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }
 };
 </script>
