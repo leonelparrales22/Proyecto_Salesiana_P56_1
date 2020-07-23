@@ -116,7 +116,6 @@ export default {
         .get(this.rest1)
         .then((data) => {
           this.celulares = data.data.result;
-          // this.paginado = 20
         })
         .catch((err) => {
           console.error(err);
