@@ -21,8 +21,6 @@
                             v-for="cliente in clientes"
                             :key="cliente.cedula_cliente"
                           >{{cliente.nombre_cliente}} {{cliente.apellido_cliente}}</option>
-                          <!-- <option>Esteban González</option>
-                          <option>Marco Maila</option>-->
                         </select>
                       </div>
                     </div>
