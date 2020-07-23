@@ -33,7 +33,7 @@ const routes = [
     children: [
       { path: "celulares/:pagenow?", name: "celulares", component: Celulares },
       { path: "preventa", component: Preventa },
-      { path: "cliente", component: Clientes },
+      { path: "cliente/:pagenow?", name: "clientes", component: Clientes },
       { path: "/", component: BienvenidoCajero },
       { path: "*", component: BienvenidoCajero },
 
