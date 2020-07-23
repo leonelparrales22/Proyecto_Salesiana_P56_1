@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <div class="page-wrapper"> 
         <div class="row">
               <div class="card">
@@ -50,7 +49,6 @@
         </div>
     </div>
 </template>
-=======
   <div class="page-wrapper" id="wrapper">Factura</div>
 </template>
 
@@ -59,4 +57,3 @@ export default {
   name: "Factura",
 };
 </script>
->>>>>>> 3b772714df7cf9f7700542100f4e9f61b00e3b9d
