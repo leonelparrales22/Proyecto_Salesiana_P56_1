@@ -15,13 +15,16 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Clientes</label>
-                        <select class="form-control custom-select">
+                        <select class="form-control custom-select" v-model="selected1">
                           <option>--Seleccione un cliente--</option>
                           <option
                             v-for="cliente in clientes"
                             :key="cliente.cedula_cliente"
                           >{{cliente.nombre_cliente}} {{cliente.apellido_cliente}}</option>
                         </select>
+                        <br>
+                        <!--/Muestra de que se está guardando el valor del select en v-model-->
+                        <span>Seleccionado: {{ selected1 }}</span>
                       </div>
                     </div>
                     <!--/span-->
@@ -31,7 +34,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Celulares</label>
-                        <select class="form-control custom-select">
+                        <select class="form-control custom-select" v-model="selected2">
                           <option>--Seleccione un celular--</option>
                           <option v-for="celular in celulares" :key="celular.id_celular">
                             {{ celular.nombre_celular }}
@@ -40,13 +43,18 @@
                           <option>Iphone 5S</option>
                           <option>Samsung j6</option> -->
                         </select>
+                        <br>
+                        <!--/Muestra de que se está guardando el valor del select en v-model-->
+                        <span>Seleccionado: {{ selected2 }}</span>
                       </div>
                     </div>
                     <!--/span-->
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Cantidad</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" v-model="cantidad" />
+                        <br>
+                        <span>Cantidad escrita: {{ cantidad }}</span>
                       </div>
                       <button type="submit" class="btn btn-inverse">
                         <i class="fa fa-check"></i> Añadir otro celular
@@ -95,6 +103,9 @@ export default {
       clientes: [],
       celulares: [],
       total: 0,
+      selected1: '',
+      selected2: '',
+      cantidad: '',
     };
   },
   methods: {

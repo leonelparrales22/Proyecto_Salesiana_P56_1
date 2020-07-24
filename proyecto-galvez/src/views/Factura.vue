@@ -6,7 +6,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="box-title m-t-40 tabla-titulo">Detalles de la Factura</h3>
-                            <div class="table-responsive">
+                            <div class="table-responsive">Samsung S5
                                 <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0">
                                     <thead>
                                         <tr>
@@ -53,3 +53,11 @@
         </div>
     </div>
 </template>
+<script>
+export default {
+    name: "Factura",
+    components:{
+
+    }
+}
+</script>
