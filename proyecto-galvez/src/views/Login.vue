@@ -168,7 +168,11 @@ export default {
             console.log(this.result[0].cedula_usuario);
             console.log(this.result[0].contrasenia);
             console.log(this.result[0].rol);
-            this.$router.push("/contenedor/");
+            if (this.result[0].rol == "ADMIN") {
+              this.$router.push("/administrador/");
+            } else {
+              this.$router.push("/contenedor/");
+            }
           } else {
             console.log("No se encontro usuario");
             this.appear_no_se_encontro_usuario();

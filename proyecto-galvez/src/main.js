@@ -11,7 +11,12 @@ import Clientes from "./views/Clientes.vue";
 import Celulares from "./views/Celulares.vue";
 import Login from "./views/Login.vue";
 import Contenedor from "./views/Contenedor.vue";
-import Factura from "./views/Factura.vue"
+import Factura from "./views/Factura.vue";
+import Administrador from "./views/Administrador.vue"
+import BienvenidoAdministrador from "./components/BienvenidoAdministrador.vue"
+import Usuarios from "./views/Usuarios.vue"
+
+
 
 Vue.config.productionTip = false;
 
@@ -38,7 +43,15 @@ const routes = [
       { path: "cliente/:pagenow?", name: "clientes", component: Clientes },
       { path: "/", component: BienvenidoCajero },
       { path: "*", component: BienvenidoCajero },
-
+    ],
+  },
+  {
+    path: "/administrador",
+    component: Administrador,
+    children: [
+      { path: "usuarios/:pagenow?", name: "usuarios", component: Usuarios },
+      { path: "/", component: BienvenidoAdministrador },
+      { path: "*", component: BienvenidoAdministrador },
     ],
   },
 ];
