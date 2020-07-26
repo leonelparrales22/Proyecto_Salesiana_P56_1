@@ -39,6 +39,7 @@
                           <option v-for="celular in celulares" :key="celular.id_celular">
                             {{ celular.nombre_celular }}
                           </option>
+                          
                           <!-- <option>Samsung A50</option>
                           <option>Iphone 5S</option>
                           <option>Samsung j6</option> -->
@@ -64,7 +65,7 @@
                   <br />
                   <br />
                   <center>
-                    <button type="submit" class="btn btn-success" v-on:click="aplastarBoton()">
+                    <button type="submit" class="btn btn-success" v-on:click="aplastarBoton(), obtenerFecha()">
                       <i class="fa fa-check"></i> Realizar venta
                     </button>
                   </center>
@@ -102,10 +103,12 @@ export default {
       rest1: "http://localhost:3100/todos-celulares",
       clientes: [],
       celulares: [],
+      fecha: '',
       total: 0,
       selected1: '',
       selected2: '',
       cantidad: '',
+      cliente: '',
     };
   },
   methods: {
@@ -130,9 +133,21 @@ export default {
           console.error(err);
         });
     },
+
     aplastarBoton(){
       this.$router.push("/contenedor/factura")
+    },
+
+    // obtenerFecha(){
+    //   this.fecha = new Date()
+    //   console.log(this.fecha);
+    // }
+
+    obtenerData(){
+      this.fecha = new Date()
+      this.cliente = selected1
     }
+    
   }
 };
 </script>
