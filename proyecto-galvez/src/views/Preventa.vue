@@ -65,7 +65,10 @@
                   <br />
                   <br />
                   <center>
-                    <button type="submit" class="btn btn-success" v-on:click="aplastarBoton(), obtenerFecha()">
+                    <button type="submit" class="btn btn-success" v-on:click="aplastarBoton()">
+                       <!-- <router-link
+                            :to="{ name: 'facturas', params: { nombre: selected1 } }"
+                          ></router-link>  Revisar más a fondo esta sintaxis,  -->
                       <i class="fa fa-check"></i> Realizar venta
                     </button>
                   </center>
@@ -109,6 +112,25 @@ export default {
       selected2: '',
       cantidad: '',
       cliente: '',
+      celu: [],
+
+      venta :{
+        cedula_cli: "",
+        cedula_us: ""
+      },
+
+      detalle: {
+        id_cel:  "",
+        cant: ""
+      },
+
+      factura: {
+        subt: "",
+        descu: "",
+        iv: "",
+        tot: ""
+      }
+
     };
   },
   methods: {
@@ -123,16 +145,16 @@ export default {
           console.error(err);
         });
     },
-  getCelulares() {
-      axios
-        .get(this.rest1)
-        .then((data) => {
-          this.celulares = data.data.result;
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    },
+    getCelulares() {
+        axios
+          .get(this.rest1)
+          .then((data) => {
+            this.celulares = data.data.result;
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      },
 
     aplastarBoton(){
       this.$router.push("/contenedor/factura")
@@ -145,7 +167,8 @@ export default {
 
     obtenerData(){
       this.fecha = new Date()
-      this.cliente = selected1
+      this.cliente = this.selected1
+      this.celu = this.celu + this.selected2
     }
     
   }

@@ -6,7 +6,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="box-title m-t-40 tabla-titulo">Detalles de la Factura</h3>
-                            <div class="table-responsive">Samsung S5
+                            <div class="table-responsive">
                                 <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0">
                                     <thead>
                                         <tr>
@@ -57,6 +57,23 @@
 export default {
     name: "Factura",
     components:{
+
+    },
+
+    data(){
+        return {
+            celular: '',
+            cantidad: '',
+            total1: '',
+            subtotal: '',
+            iva: '',
+            totalc: '',
+            rest1:"http://localhost:3100/todos-detale",
+            rest2:"http://localhost:3100/todos-factura"
+        }
+    },
+
+    methods(){
 
     }
 }
