@@ -251,13 +251,12 @@
 </style>
 
 <script>
-// import $ from "jquery";
+import { Global } from "../Global";
 import axios from "axios";
 import { required, minLength, between } from "vuelidate/lib/validators";
 export default {
   name: "Celulares",
-  components: {
-  },
+  components: {},
   validations: {
     submitted: false,
     celular: {
@@ -302,13 +301,11 @@ export default {
     },
   },
   updated() {
-    console.log("CAMBIO");
     if (this.butt_actualizar) {
       this.actualizar_paginado();
       this.getCelulares();
       this.butt_actualizar = false;
     }
-    console.log(this.myModel);
   },
   mounted() {
     this.pagenow = this.$route.params.pagenow;
@@ -329,7 +326,7 @@ export default {
   },
   data() {
     return {
-      rest: "http://localhost:3100/todos-celulares",
+      rest: Global.url + "todos-celulares",
       // Paginacion
       pagenow: null,
       celulares: [],
@@ -372,7 +369,7 @@ export default {
         });
     },
     actualizar_paginado() {
-      this.rest = "http://localhost:3100/todos-celulares";
+      this.rest = Global.url + "todos-celulares";
       this.pagenow = this.$route.params.pagenow;
       if (this.pagenow != null) {
         if (this.pagenow > 1) {
@@ -396,7 +393,7 @@ export default {
       var body = document.body;
       body.classList.remove("modal-open");
       axios
-        .post("http://localhost:3100/insertar-celular", {
+        .post(Global.url + "insertar-celular", {
           nombre_celular: this.celular.modelo,
           marca_celular: this.celular.marca,
           stock_celular: this.celular.stock,
@@ -441,7 +438,7 @@ export default {
       var body = document.body;
       body.classList.remove("modal-open");
       axios
-        .put("http://localhost:3100/editar-celular", {
+        .put(Global.url + "editar-celular", {
           id_celular: this.editar.id,
           nombre_celular: this.editar.modelo,
           marca_celular: this.editar.marca,

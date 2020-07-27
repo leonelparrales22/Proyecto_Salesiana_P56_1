@@ -217,7 +217,7 @@
 </style>
 
 <script>
-// import $ from "jquery";
+import { Global } from "../Global";
 import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
 export default {
@@ -284,7 +284,7 @@ export default {
   },
   data() {
     return {
-      rest: "http://localhost:3100/todos-clientes",
+      rest: Global.url + "todos-clientes",
       // Paginacion
       pagenow: null,
       clientes: [],
@@ -326,7 +326,7 @@ export default {
         });
     },
     actualizar_paginado() {
-      this.rest = "http://localhost:3100/todos-clientes";
+      this.rest = Global.url + "todos-clientes";
       this.pagenow = this.$route.params.pagenow;
       if (this.pagenow != null) {
         if (this.pagenow > 1) {
@@ -350,7 +350,7 @@ export default {
       var body = document.body;
       body.classList.remove("modal-open");
       axios
-        .post("http://localhost:3100/insertar-cliente", {
+        .post(Global.url + "insertar-cliente", {
           nombre_cliente: this.cliente.nombre,
           apellido_cliente: this.cliente.apellido,
           cedula_cliente: this.cliente.cedula,
@@ -400,7 +400,7 @@ export default {
       var body = document.body;
       body.classList.remove("modal-open");
       axios
-        .put("http://localhost:3100/editar-cliente", {
+        .put(Global.url + "editar-cliente", {
           nombre_cliente: this.editar.nombre,
           apellido_cliente: this.editar.apellido,
           cedula_cliente: this.editar.cedula,

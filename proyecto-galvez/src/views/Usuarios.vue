@@ -220,6 +220,8 @@
 <script>
 import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
+import { Global } from "../Global";
+
 export default {
   name: "Usuarios",
   components: {},
@@ -276,7 +278,7 @@ export default {
   },
   data() {
     return {
-      rest: "http://localhost:3100/todos-usuarios",
+      rest: Global.url + "todos-usuarios",
       // Paginacion
       pagenow: null,
       usuarios: [],
