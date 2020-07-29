@@ -3,8 +3,8 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 function createWindow() {
 
     let win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1400,
+        height: 1400,
         webPreferences: {
             nodeIntegration: true
         }
