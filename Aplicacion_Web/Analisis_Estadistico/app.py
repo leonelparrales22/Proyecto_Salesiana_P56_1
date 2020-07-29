@@ -5,6 +5,7 @@ from datetime import date, timedelta
 
 from flask import Flask, render_template, request, redirect, url_for, json, jsonify
 from flaskext.mysql import MySQL
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -71,9 +72,12 @@ def calcular_marca_mas_vendido():
         }
         y = json.dumps(lista)
         grafico += y
+        print(len(data), contador)
+
         if len(data) != contador:
             grafico += ","
-        contador += contador
+
+        contador += 1
     grafico += "]"
     return grafico
 
@@ -209,6 +213,16 @@ def calcular_reporte_ventas_mensual():
     return plantilla
 
 
+def machine_learning():
+    data = pd.read_csv('files/pronostico.csv', sep=',')
+    data = data.values
+    y = []
+    for x in data:
+        y.append({"dia": int(x[0] + 1), "valor": "{:.2f}".format(x[1])})
+    y = json.dumps(y)
+    return y
+
+
 # WEB APLICATION
 validar = False
 
@@ -217,7 +231,6 @@ validar = False
 def index():
     global validar
     validar = False
-    texto = "Cuenca"
     if request.method == "POST":
         usuario = request.form['cedula']
         password = request.form['password']
@@ -239,7 +252,7 @@ def dashboard():
     else:
         return render_template("dashboard.html", texto=texto, g1=calcular_marca_mas_vendido(),
                                g2=calcular_rango_celulares_mas_vendido(), g3=calcular_reporte_ventas_semanal(),
-                               g4=calcular_reporte_ventas_mensual()
+                               g4=calcular_reporte_ventas_mensual(), g5=machine_learning()
                                )
 
 
