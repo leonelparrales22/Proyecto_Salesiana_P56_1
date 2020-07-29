@@ -118,9 +118,8 @@
 <script>
 import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
-// import Vue from "vue";
-// import VueRouter from "vue-router";
-// Vue.use(VueRouter);
+import { Global } from "../Global";
+
 
 export default {
   name: "Login",
@@ -156,7 +155,7 @@ export default {
         return false;
       }
       axios
-        .get("http://localhost:3100/login", {
+        .get(Global.url + "login", {
           params: {
             cedula_usuario: this.usuario.cedula,
             contrasenia: this.usuario.contrasenia,
@@ -171,7 +170,7 @@ export default {
             if (this.result[0].rol == "ADMIN") {
               this.$router.push("/administrador/");
             } else {
-              this.$router.push("/contenedor/");
+              this.$router.push({ name: 'contenedor', params: { cedula: this.result[0].cedula_usuario } });
             }
           } else {
             console.log("No se encontro usuario");

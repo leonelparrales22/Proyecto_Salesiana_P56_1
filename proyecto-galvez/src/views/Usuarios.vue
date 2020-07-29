@@ -315,7 +315,7 @@ export default {
         });
     },
     actualizar_paginado() {
-      this.rest = "http://localhost:3100/todos-usuarios";
+      this.rest = Global.url + "todos-usuarios";
       this.pagenow = this.$route.params.pagenow;
       if (this.pagenow != null) {
         if (this.pagenow > 1) {
@@ -327,7 +327,7 @@ export default {
     },
     save() {
       axios
-        .post("http://localhost:3100/insertar-usuario", {
+        .post(Global.url + "insertar-usuario", {
           cedula_usuario: this.usuario.cedula_usuario,
           contrasenia: this.usuario.contrasenia,
           rol: this.usuario.rol,
@@ -387,7 +387,7 @@ export default {
       var body = document.body;
       body.classList.remove("modal-open");
       axios
-        .put("http://localhost:3100/editar-usuario", {
+        .put(Global.url + "editar-usuario", {
           cedula_usuario: this.editar.cedula_usuario,
           rol: this.editar.rol,
         })

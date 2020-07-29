@@ -49,7 +49,6 @@
                               href="#editEmployeeModal"
                               class="edit"
                               data-toggle="modal"
-                              data-book-id="LEONELPAPIPARRALES"
                               @click="editar_celular(celular.id_celular, celular.nombre_celular, celular.marca_celular, celular.stock_celular, celular.precio_celular )"
                             >
                               <div class="hover01">
