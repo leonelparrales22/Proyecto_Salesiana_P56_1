@@ -31,8 +31,8 @@ Vue.use(Vuelidate);
 // Principal
 const routes = [
     { path: "/login", component: Login },
-    { path: "/", name: "/", component: Contenedor },
-    { path: "*", component: BienvenidoCajero },
+    { path: "/", name: "/", component: Login },
+    { path: "*", component: Login },
     {
         path: "/contenedor/:cedula?",
         name: "contenedor",
@@ -52,7 +52,7 @@ const routes = [
         component: Administrador,
         children: [
             { path: "usuarios/:pagenow?", name: "usuarios", component: Usuarios },
-            { path: "/", component: BienvenidoAdministrador },
+            { path: "/", name:"administrador", component: BienvenidoAdministrador },
             { path: "*", component: BienvenidoAdministrador },
         ],
     },

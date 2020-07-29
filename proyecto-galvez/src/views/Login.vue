@@ -72,6 +72,7 @@
                             <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> </div>
             </div>-->
             <br />
+            <div v-if="loading">Loading...</div>
             <div class="form-group text-center m-t-20">
               <div class="col-xs-12">
                 <button
@@ -120,11 +121,11 @@ import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
 import { Global } from "../Global";
 
-
 export default {
   name: "Login",
   data() {
     return {
+      loading: false,
       submitted_1: false,
       submitted_2: false,
       no_se_encontro_usuario: false,
@@ -146,12 +147,13 @@ export default {
       this.no_se_encontro_usuario = !this.no_se_encontro_usuario;
     },
     login() {
-      this.submitted_1 = true;
+      (this.loading = true), (this.submitted_1 = true);
       this.submitted_2 = true;
 
       this.$v.$touch();
       if (this.$v.$invalid) {
         console.log("ERRROR", this.$v);
+        this.loading = false;
         return false;
       }
       axios
@@ -168,16 +170,24 @@ export default {
             console.log(this.result[0].contrasenia);
             console.log(this.result[0].rol);
             if (this.result[0].rol == "ADMIN") {
-              this.$router.push("/administrador/");
+              console.log(this.result);
+              this.$router.push({
+                name: "administrador",
+                params: { cedula: this.result[0].cedula_usuario },
+              });
             } else {
-              this.$router.push({ name: 'contenedor', params: { cedula: this.result[0].cedula_usuario } });
+              this.$router.push({
+                name: "contenedor",
+                params: { cedula: this.result[0].cedula_usuario },
+              });
             }
           } else {
+            this.loading = false;
             console.log("No se encontro usuario");
             this.appear_no_se_encontro_usuario();
             setTimeout(() => {
               this.appear_no_se_encontro_usuario();
-            }, 1200);
+            }, 1500);
           }
         })
         .catch((err) => {

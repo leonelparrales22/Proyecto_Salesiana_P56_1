@@ -17,8 +17,18 @@ export default {
   components: {
     HeaderComponentAdministrador,
     BarraLateralAdministrador,
-    FooterComponent
+    FooterComponent,
   },
+  data() {
+    return {
+      cedula: this.$route.params.cedula,
+    };
+  },
+  // mounted() {
+  //   this.$router.push({
+  //     name: "bienvenido",
+  //   });
+  // },
 };
 </script>
 

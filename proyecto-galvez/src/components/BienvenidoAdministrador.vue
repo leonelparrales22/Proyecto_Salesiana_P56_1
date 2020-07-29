@@ -10,7 +10,7 @@
           <img src="../assets/img/cajero.jpg" class="img-circle" width="300" />
           <br />
           <br />
-          <h4 class="card-title m-t-10 subtitulo">Administrador: 172567039</h4>
+          <h4 class="card-title m-t-10 subtitulo">Administrador: {{this.$parent.cedula}}</h4>
         </center>
         <div class="right-sidebar">
           <div class="slimscrollright">
