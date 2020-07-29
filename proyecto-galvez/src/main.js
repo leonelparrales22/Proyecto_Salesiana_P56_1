@@ -31,18 +31,19 @@ Vue.use(Vuelidate);
 // Principal
 const routes = [
     { path: "/login", component: Login },
-    { path: "/", name: "/", component: Contenedor },
-    { path: "*", component: BienvenidoCajero },
+    { path: "/", name: "/", component: Login },
+    { path: "*", component: Login },
     {
-        path: "/contenedor",
+        path: "/contenedor/:cedula?",
+        name: "contenedor",
         component: Contenedor,
         children: [
             { path: "celulares/:pagenow?", name: "celulares", component: Celulares },
             { path: "preventa", component: Preventa },
-            { path: "factura", component: Factura },
-            //{ path: "factura/:nombre?", name: "facturas", component: Factura },
+            { path: "factura/:id_factura?", name: "factura", component: Factura },
             { path: "cliente/:pagenow?", name: "clientes", component: Clientes },
-            { path: "/", component: BienvenidoCajero },
+            { path: "/:cedula?", component: BienvenidoCajero },
+            { path: "/", name:"bienvenido", component: BienvenidoCajero },
             { path: "*", component: BienvenidoCajero },
         ],
     },
@@ -51,7 +52,7 @@ const routes = [
         component: Administrador,
         children: [
             { path: "usuarios/:pagenow?", name: "usuarios", component: Usuarios },
-            { path: "/", component: BienvenidoAdministrador },
+            { path: "/", name:"administrador", component: BienvenidoAdministrador },
             { path: "*", component: BienvenidoAdministrador },
         ],
     },

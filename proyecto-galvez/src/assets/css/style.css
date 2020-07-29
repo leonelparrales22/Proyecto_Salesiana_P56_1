@@ -8481,6 +8481,8 @@ table.table tr td {
 .mismo-bloque {
   display: inline-block !important;
 }
+
+
 table.table tr th:first-child {
   width: 400px;
 }
@@ -8652,4 +8654,6 @@ table.table .avatar {
   font-weight: normal;
 }
 
-/* pruebas */
+
+
+
