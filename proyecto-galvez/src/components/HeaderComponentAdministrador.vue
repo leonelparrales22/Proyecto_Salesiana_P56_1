@@ -8,7 +8,7 @@
       <!-- Logo -->
       <!-- ============================================================== -->
       <div class="navbar-header">
-        <router-link to="/administrador" class="navbar-brand">
+        <router-link :to="{ name: 'administrador'}" class="navbar-brand">
           <!-- Logo icon -->
           <b>
             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
