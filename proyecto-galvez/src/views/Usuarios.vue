@@ -123,7 +123,7 @@
                           <label>Contraseña</label>
                           <input type="password" class="form-control" v-model="usuario.contrasenia" />
                           <div
-                            v-if="submitted && !$v.usuario.cedula_usuario.required"
+                            v-if="submitted && !$v.usuario.contrasenia.required"
                           >Este campo es requerido</div>
                         </div>
                         <div class="form-group">
