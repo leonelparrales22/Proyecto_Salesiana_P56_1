@@ -60,6 +60,16 @@ Login register and recover password Page
   background-image: url("../img/login.jpg");
 }
 
+.fondo2 {
+  background-image: url("../img/cajero.png");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+  height: 300px;
+  width: 300px;
+}
+
+
 ::placeholder { 
   /* color: deeppink !important; */
   font-size: 19px;
