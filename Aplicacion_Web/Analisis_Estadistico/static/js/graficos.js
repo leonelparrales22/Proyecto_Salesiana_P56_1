@@ -11,15 +11,15 @@ function g2(grafico) {
 function g3(grafico) {
   data = JSON.parse(grafico);
   console.log(data[0].fechas);
-  labels = data[0].fechas
+  labels = data[0].fechas;
   // info = [12, 19, 3, 5, 2, 3, 8];
   // ["180.00", "767.00", "994.00", "1941.00", "227.00", "370.00", "1278.98"]
-  info = data[0].data
+  info = data[0].data;
   crear_barra("grafico_3", labels, info);
 }
 
 function g4(grafico) {
-  data = JSON.parse(grafico)
+  data = JSON.parse(grafico);
   labels = [
     "Enero",
     "Febrero",
@@ -35,8 +35,22 @@ function g4(grafico) {
     "Diciembre",
   ];
   info = [12, 19, 3, 5, 2, 3, 8, 5, 6, 0, 0, 0];
-  info = data[0].totales
+  info = data[0].totales;
   crear_barra("grafico_4", labels, info);
+}
+
+function g5(grafico) {
+  data = JSON.parse(grafico);
+  console.log(data);
+  labels = [];
+  info = [];
+  data.forEach((element) => {
+    labels.push("Día " + element.dia);
+    info.push(element.valor);
+  });
+  console.log(labels);
+  console.log(info);
+  crear_barra("grafico_5", labels, info);
 }
 
 function crear_dona(nombre_id) {
