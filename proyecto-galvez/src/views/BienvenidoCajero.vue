@@ -5,7 +5,6 @@
     <div class="page-wrapper">
       <div class="container-fluid">
         <center>
-          <!-- <h2 class="bienvenido text-themecolor">Bienvenido</h2> -->
           <h2 class="bienvenido">Bienvenido</h2>
         </center>
         <center class="m-t-30">
